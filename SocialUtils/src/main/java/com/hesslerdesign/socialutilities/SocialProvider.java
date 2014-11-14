@@ -5,8 +5,8 @@ public class SocialProvider {
     public final static String FACEBOOK = "Facebook";
     public final static String TWITTER = "Twitter";
 
-    protected final static String FACEBOOK_PACKAGE_NAME = "com.facebook.katana";
-    protected final static String TWITTER_PACKAGE_NAME = "com.twitter.android";
+    public final static String FACEBOOK_PACKAGE_NAME = "com.facebook.katana";
+    public final static String TWITTER_PACKAGE_NAME = "com.twitter.android";
 
     private String mProvider;
     private String mShareIntentExtraText;

@@ -44,17 +44,24 @@ public class SocialUtils {
         boolean fbAppFound = false;
         boolean twitterAppFound = false;
         List<ResolveInfo> matches = activity.getPackageManager().queryIntentActivities(intent, 0);
+
         for (ResolveInfo info : matches) {
 
+            String packageName = info.activityInfo.packageName.toLowerCase();
+
             // Facebook
-            if (info.activityInfo.packageName.toLowerCase().startsWith(socialProvider.getProviderPackageName())) {
+            if (packageName.startsWith(SocialProvider.FACEBOOK_PACKAGE_NAME) &&
+                packageName.startsWith(socialProvider.getProviderPackageName()))
+            {
                 intent.putExtra(Intent.EXTRA_TEXT, socialProvider.getShareIntentUrl());
                 intent.setPackage(info.activityInfo.packageName);
                 fbAppFound = true;
             }
 
             // Twitter
-            if (info.activityInfo.packageName.toLowerCase().startsWith(socialProvider.getProviderPackageName())) {
+            if (packageName.startsWith(SocialProvider.TWITTER_PACKAGE_NAME) &&
+                packageName.startsWith(socialProvider.getProviderPackageName()))
+            {
                 intent.putExtra(Intent.EXTRA_TEXT, socialProvider.getShareIntentExtraText());
                 intent.setClassName(info.activityInfo.packageName, info.activityInfo.name);
                 twitterAppFound = true;
