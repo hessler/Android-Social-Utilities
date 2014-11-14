@@ -23,7 +23,8 @@ local.properties
 .DS_Store
 .idea/
 .gradle/
-build/
+/build
+#!SocialUtils/build/output
 
 #Android Studio Jira Plugin
 atlassian-ide-plugin.xml
